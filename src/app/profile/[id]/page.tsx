@@ -5,8 +5,17 @@ import React, { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
+// Define a type or interface for user data
+interface UserData {
+  username: string;
+  email: string;
+  isVerified: boolean;
+  isAdmin: boolean;
+  _id: string;
+}
+
 export default function UserProfile({ params }: any) {
-  const [userData, setUserData] = useState(null); // Set initial value to null
+  const [userData, setUserData] = useState<UserData | null>(null); // Set initial value to null
 
   const getUserDetails = async () => {
     try {
