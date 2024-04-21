@@ -39,7 +39,7 @@ export default function SignupPage  () {
     else{
       setButtonDisabled(true);
     }
-  },[user]);
+  },[user, loading]);
   return (
 
 

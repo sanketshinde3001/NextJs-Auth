@@ -31,7 +31,7 @@ export default function ProfilePage() {
             <div className="bg-[#111827] p-8 rounded-lg shadow-lg text-center">
                 <h1 className="text-3xl font-bold mb-4">Profile</h1>
                 <hr className="border-gray-600 mb-4" />
-                <p className="text-lg mb-6">Welcome to your profile page. <br />Click 'User Details' Button. <br /> Then Click on your Name for info.</p>
+                <p className="text-lg mb-6">Welcome to your profile page. <br />Click User Details Button. <br /> Then Click on your Name for info.</p>
                 <div className="flex items-center justify-center">
                     <h2 className="py-3 px-6 rounded bg-green-500 text-lg">
                         {data === 'nothing' ? "" : <Link href={`/profile/${data}`} className="text-white">{data}</Link>}

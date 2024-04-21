@@ -31,14 +31,13 @@ export default function LoginPage  () {
   }
 
   useEffect(() => {
-    console.log(loading)
-    if(user.email.length > 0 && user.password.length > 0){
+    if(user.email.length > 0 && user.password.length > 0 && !loading){
       setButtonDisabled(false);
     }
     else{
       setButtonDisabled(true);
     }
-  },[user]);
+  },[user, loading]);
   return (
 
 
