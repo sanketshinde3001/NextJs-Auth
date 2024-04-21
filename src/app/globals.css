@@ -31,3 +31,7 @@ body {
     text-wrap: balance;
   }
 }
+
+.nunito{
+  font-family: var(--font-nunito);
+}
