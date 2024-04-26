@@ -76,7 +76,7 @@ export default function ForgotPage  () {
       <div className='lg:w-1/2 max-lg:w-full p-5 bg-[#131e44] h-screen flex flex-col justify-center items-center '>
         <div className='w-2/3'>
         <h1 className='lg:text-7xl md:text-7xl max-md:text-5xl font-bold font-mono mb-10 nunito '>Oops, Forgot Your Password?</h1>
-        <p className='text-xl nunito w-full text-left'>Don't worry, it happens to the best of us! Let's get you back on track. Just enter your email address below, and we'll send you a link to reset your password.</p>
+        <p className='text-xl nunito w-full text-left'>Dont worry, it happens to the best of us! Let's get you back on track. Just enter your email address below, and we will send you a link to reset your password.</p>
       </div>
       </div>
     </div>

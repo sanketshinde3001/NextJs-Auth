@@ -86,7 +86,7 @@ return (
         }
         {!emailupdate ?
             (        <div className="text-gray-300 mb-6 text-xl text-center">
-            No worries, we've got you covered. To reset your password, click the button below
+            No worries, we have got you covered. To reset your password, click the button below
             </div>):(<div>
                 <div className="text-center">Your Email is - </div>
                 <div className="text-center">{user.email}</div>
