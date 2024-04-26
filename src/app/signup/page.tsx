@@ -16,18 +16,32 @@ export default function SignupPage  () {
     username:""
   });
 
+
   const [buttonDisabled, setButtonDisabled] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const onSignup = async() => {
     try {
       setLoading(true);
-      const response = await axios.post("/api/users/signup",user)
+      const response = await axios.post("/api/users/signup",user);
+      toast.success("Signup successful");
       console.log(response.data , "success signup");
+      setLoading(false);
       router.push("/seemail")
     } catch (error:any) {
-      console.log("Signup Failed",error);
-      toast.error(error.response.data.message);
+      if (error.response.data.error === "userfound") {
+        toast.error("This Email is already registered");
+        setLoading(false);
+      }
+      else if (error.response.data.error === "userfound1") {
+        toast.error("This username is already registered");
+        setLoading(false);
+      }
+      else{
+        toast.error(error.response.data.error);
+        setLoading(false);
+      }
+      
     }
   }
 

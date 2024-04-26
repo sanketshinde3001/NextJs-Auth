@@ -6,13 +6,14 @@ require('dotenv').config();
 export const sendEmail = async ({ email, emailType, userId }: any) => {
   try {
     const hashToken = await bcryptjs.hash(userId.toString(), 10)
-
+    console.log("here1");
     if (emailType === 'VERIFY') {
+      console.log("here2");
       await User.findByIdAndUpdate(userId,
         {
           $set: { verifyToken: hashToken, verifyTokenExpiry: new Date(Date.now() + 360000) }
         });
-
+        console.log("here3");
       }else if (emailType === 'RESET') {
       await User.findByIdAndUpdate(userId,
         {$set:
@@ -38,6 +39,8 @@ export const sendEmail = async ({ email, emailType, userId }: any) => {
     //   }
     // });
 
+    console.log("here4",emailType)
+
     const mailOptions = {
       from: {
         name: 'Sanket Shinde',
@@ -45,7 +48,7 @@ export const sendEmail = async ({ email, emailType, userId }: any) => {
       },
       to: email,
       subject: emailType === 'VERIFY' ? "Verify your email" : "Reset your password", // Subject line
-      html: `<p>Click <a href="${process.env.DOMAIN}/verifyemail?token=${hashToken}">here</a> to ${emailType === "VERIFY" ? "verify your email" : "reset your password"} or copy paste the link below in your browser.<br>${process.env.DOMAIN}/verifyemail?token=${hashToken} </p>`, // html body
+      html: `<p>Click <a href="${process.env.DOMAIN}/${emailType === "VERIFY" ? "verifyemail" : "forgotpass"}?token=${hashToken}">here</a> to ${emailType === "VERIFY" ? "verify your email" : "reset your password"} or copy paste the link below in your browser.<br>${process.env.DOMAIN}/${emailType === "VERIFY" ? "verifyemail" : "forgotpass"}?token=${hashToken} </p>`, // html body
     }
     // const mailOptions = {
     //   from: 'sanketshinde3123@gmail.com',
